@@ -1,6 +1,19 @@
 'use client'
 
-import { BoldIcon, ItalicIcon, ListTodoIcon, LucideIcon, MessageSquareCodeIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, SpellCheckIcon, StrikethroughIcon, UnderlineIcon, Undo2Icon } from "lucide-react";
+import { BoldIcon, 
+        ItalicIcon, 
+        ListTodoIcon, 
+        LucideIcon, 
+        MessageSquareCodeIcon, 
+        PrinterIcon, 
+        Redo2Icon, 
+        RemoveFormattingIcon, 
+        SpellCheckIcon, 
+        StrikethroughIcon, 
+        UnderlineIcon, 
+        Undo2Icon, 
+    
+    } from "lucide-react";
 import ToolbarButton from "@/app/components/ToolbarButton";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -35,12 +48,16 @@ const Toolbar = () => {
         {
             label: 'Spell Check',
             icon: SpellCheckIcon,
-            onClick: ()=>{
-                const current = editor?.view?.dom.getAttribute('spellcheck');
-                editor?.view?.dom.setAttribute('spellcheck', current === 'true' ? 'false' : 'true');
-            }
+           onClick: () => {
+                const dom = editor?.view.dom;
+                if (!dom) return;
+                const current = dom.getAttribute('spellcheck');
+                const next = current === 'false' ? 'true' : 'false';
+                dom.setAttribute('spellcheck', next);
+            },
         }
         ],
+        // section 1
         [
             {
                 label: 'Bold',
@@ -67,6 +84,7 @@ const Toolbar = () => {
                 onClick: ()=> editor?.chain().focus().toggleStrike().run(),
             }
         ],
+        // section 2
         [
             {
                 label: 'Comments',
@@ -92,30 +110,42 @@ const Toolbar = () => {
 
   return (
     <div className='text-gray-700 bg-[#f0f1f1] px-2 py-1.5 rounded-md min-h-3 flex items-center gap-x-0.5 overflow-x-auto'>
+        {/* Undo Redo print spellcheck */}
         {
             sections[0].map((item)=>(
                 <ToolbarButton key={item.label} icon={item.icon} isActive={item.isActive} onClick={item.onClick}/>
             ))
         }
-         <Separator orientation="vertical" className="h-6 bg-neutral-700"/>
-         
-        <Separator orientation="vertical" className="h-6 bg-neutral-900"/>
-        {/* Todo: font family */}
+
+        <Separator orientation="vertical" className="mx-1 h-6 w-1 bg-neutral-700"/>
+        {/* Font family */}
         <FontFamilyTool/>
+
+        <Separator orientation="vertical" className="mx-1 h-6 w-1 bg-neutral-700"/>
         {/* Heading */}
          <HeadingTool/>
-         <Separator orientation="vertical" className="h-6 bg-neutral-700"/>
+
+         <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
          {/* Todo: font size */}
-          <Separator orientation="vertical" className="h-6 bg-neutral-700"/>
-          {/* Todo: font color */}
+
+
+          <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
+          {/* font color */}
           <ColorTool/>
-        <Separator orientation="vertical" className="h-6 bg-neutral-900"/>
+
+
+        <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
+        {/* Bold Italic underline strike */}
         {
             sections[1].map((item)=>(
                 <ToolbarButton key={item.label} icon={item.icon} isActive={item.isActive} onClick={item.onClick}/>
             ))
         }
-        <Separator orientation="vertical" className="h-6 bg-neutral-900"/>
+
+
+       <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
+        {/* Todo: comments */}
+        {/* list todo remove formating */}
         {
             sections[2].map((item)=>(
                 <ToolbarButton key={item.label} icon={item.icon} isActive={item.isActive} onClick={item.onClick}/>
