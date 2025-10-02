@@ -172,6 +172,16 @@
   h6{
     font-size: 0.8rem;
   }
+  
+  /* ----------------Link styles------------------ */
+  a {
+    @apply text-blue-600;
+    cursor: pointer;
+
+    &:hover {
+      @apply hover:underline;
+    }
+  }
 
   /* ----------------List styles------------------ */
   /*list styles */

@@ -21,6 +21,8 @@ import FontFamilyTool from "@/app/components/organisms/FontFamilyTool";
 import HeadingTool from "@/app/components/organisms/HeadingTool";
 import ColorTool from "@/app/components/organisms/ColorTool";
 import HighlightTool from "@/app/components/organisms/HighlightTool";
+import LinkTool from "@/app/components/organisms/LinkTool";
+
 
 const Toolbar = () => {
     const {editor} = useEditorStore();
@@ -135,6 +137,9 @@ const Toolbar = () => {
           <ColorTool/>
           <HighlightTool/>
 
+        <Separator orientation="vertical" className="mx-1 h-6 w-1 bg-black"/>
+        {/* Link */}
+        <LinkTool/>
 
         <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
         {/* Bold Italic underline strike */}
