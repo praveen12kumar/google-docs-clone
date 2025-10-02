@@ -6,7 +6,7 @@ import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
 import FontFamilyTool from "@/app/components/organisms/FontFamilyTool";
 import HeadingTool from "@/app/components/organisms/HeadingTool";
-
+import ColorTool from "@/app/components/organisms/ColorTool";
 
 const Toolbar = () => {
     const {editor} = useEditorStore();
@@ -108,6 +108,8 @@ const Toolbar = () => {
          {/* Todo: font size */}
           <Separator orientation="vertical" className="h-6 bg-neutral-700"/>
           {/* Todo: font color */}
+          <ColorTool/>
+        <Separator orientation="vertical" className="h-6 bg-neutral-900"/>
         {
             sections[1].map((item)=>(
                 <ToolbarButton key={item.label} icon={item.icon} isActive={item.isActive} onClick={item.onClick}/>
