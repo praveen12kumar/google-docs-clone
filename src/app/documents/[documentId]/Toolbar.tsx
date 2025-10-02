@@ -20,6 +20,7 @@ import { Separator } from "@/components/ui/separator";
 import FontFamilyTool from "@/app/components/organisms/FontFamilyTool";
 import HeadingTool from "@/app/components/organisms/HeadingTool";
 import ColorTool from "@/app/components/organisms/ColorTool";
+import HighlightTool from "@/app/components/organisms/HighlightTool";
 
 const Toolbar = () => {
     const {editor} = useEditorStore();
@@ -130,8 +131,9 @@ const Toolbar = () => {
 
 
           <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
-          {/* font color */}
+          {/* font color, Highlight */}
           <ColorTool/>
+          <HighlightTool/>
 
 
         <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
