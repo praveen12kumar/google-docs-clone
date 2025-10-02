@@ -139,41 +139,38 @@
   /* Heading styles */
   h1,
   h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h3{
     line-height: 1.1;
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-wrap: pretty;
   }
 
   h1,
   h2 {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     margin-bottom: 1rem;
   }
 
   h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 2rem;
   }
 
   h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.6rem;
   }
 
   h3 {
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.4rem;
   }
 
-  h4,
-  h5,
-  h6 {
+  h4{
+    font-size: 1.2rem;
+  }
+  h5{
     font-size: 1rem;
-    font-weight: 400;
+  }
+  h6{
+    font-size: 0.8rem;
   }
 
   /* ----------------List styles------------------ */

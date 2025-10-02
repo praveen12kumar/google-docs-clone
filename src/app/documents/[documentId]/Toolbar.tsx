@@ -5,7 +5,7 @@ import ToolbarButton from "@/app/components/ToolbarButton";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
 import FontFamilyTool from "@/app/components/organisms/FontFamilyTool";
-
+import HeadingTool from "@/app/components/organisms/HeadingTool";
 
 
 const Toolbar = () => {
@@ -98,11 +98,12 @@ const Toolbar = () => {
             ))
         }
          <Separator orientation="vertical" className="h-6 bg-neutral-700"/>
-         {/* Heading */}
-
+         
         <Separator orientation="vertical" className="h-6 bg-neutral-900"/>
         {/* Todo: font family */}
         <FontFamilyTool/>
+        {/* Heading */}
+         <HeadingTool/>
          <Separator orientation="vertical" className="h-6 bg-neutral-700"/>
          {/* Todo: font size */}
           <Separator orientation="vertical" className="h-6 bg-neutral-700"/>
