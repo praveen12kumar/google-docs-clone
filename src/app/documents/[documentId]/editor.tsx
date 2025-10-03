@@ -11,6 +11,8 @@ import { ResizableImage } from 'tiptap-extension-resizable-image';
 import Link from '@tiptap/extension-link';
 import TextAlign from '@tiptap/extension-text-align';
 import {LineHeight} from '@tiptap/extension-text-style';
+import Ruler from './Ruler';
+
 
 import 'tiptap-extension-resizable-image/styles.css';
 
@@ -134,6 +136,7 @@ const Editor = () => {
 
   return (
     <div className="editor w-full overflow-x-auto bg-[#F9fBFD] px-4 print:p-0 print:bg-white print:overflow-visible">
+      <Ruler/>
       <div className="min-w-max flex justify-center w-[816px] px-4 mx-auto print:w-full print:min-w-0">
         <EditorContent editor={editor} />
       </div>
