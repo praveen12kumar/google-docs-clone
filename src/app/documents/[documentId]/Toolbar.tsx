@@ -23,6 +23,7 @@ import ColorTool from "@/app/components/organisms/ColorTool";
 import HighlightTool from "@/app/components/organisms/HighlightTool";
 import LinkTool from "@/app/components/organisms/LinkTool";
 import ImageTool from "@/app/components/organisms/ImageTool";
+import AlignTool from "@/app/components/organisms/AlignTool";
 
 
 const Toolbar = () => {
@@ -142,6 +143,7 @@ const Toolbar = () => {
         {/* Link */}
         <LinkTool/>
         <ImageTool/>
+        <AlignTool/>
 
         <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
         {/* Bold Italic underline strike */}

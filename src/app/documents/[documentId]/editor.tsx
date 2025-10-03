@@ -9,6 +9,9 @@ import Highlight from '@tiptap/extension-highlight';
 import { TextStyle, Color, FontFamily } from '@tiptap/extension-text-style';
 import { ResizableImage } from 'tiptap-extension-resizable-image';
 import Link from '@tiptap/extension-link';
+import TextAlign from '@tiptap/extension-text-align';
+
+
 import 'tiptap-extension-resizable-image/styles.css';
 
 import { useEditorStore } from '@/store/use-editor-store';
@@ -36,6 +39,7 @@ const Editor = () => {
         defaultWidth: 200,
         defaultHeight: 200,
       }),
+      TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Highlight.configure({ multicolor: true }),
       FileHandler.configure({
         allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
