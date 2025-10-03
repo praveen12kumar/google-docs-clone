@@ -24,7 +24,7 @@ import HighlightTool from "@/app/components/organisms/HighlightTool";
 import LinkTool from "@/app/components/organisms/LinkTool";
 import ImageTool from "@/app/components/organisms/ImageTool";
 import AlignTool from "@/app/components/organisms/AlignTool";
-
+import ListTool from "@/app/components/organisms/ListTool";
 
 const Toolbar = () => {
     const {editor} = useEditorStore();
@@ -144,6 +144,7 @@ const Toolbar = () => {
         <LinkTool/>
         <ImageTool/>
         <AlignTool/>
+        <ListTool/>
 
         <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
         {/* Bold Italic underline strike */}
