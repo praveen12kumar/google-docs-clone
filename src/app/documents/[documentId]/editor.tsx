@@ -6,7 +6,7 @@ import { TaskList, TaskItem } from '@tiptap/extension-list';
 import { TableKit } from '@tiptap/extension-table';
 import FileHandler from '@tiptap/extension-file-handler';
 import Highlight from '@tiptap/extension-highlight';
-import { TextStyle, Color, FontFamily } from '@tiptap/extension-text-style';
+import { TextStyle, Color, FontFamily, FontSize } from '@tiptap/extension-text-style';
 import { ResizableImage } from 'tiptap-extension-resizable-image';
 import Link from '@tiptap/extension-link';
 import TextAlign from '@tiptap/extension-text-align';
@@ -32,6 +32,7 @@ const Editor = () => {
       TextStyle,
       Color,                // or Color.configure({ types: ['textStyle'] })
       FontFamily,
+      FontSize,
       TaskList,
       TaskItem.configure({ nested: true }),
       TableKit,

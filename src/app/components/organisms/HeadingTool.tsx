@@ -36,7 +36,7 @@ const HeadingTool = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-7 min-m-7 text-sm flex items-center justify-center hover:bg-neutral-300/80 rounded-sm px-2 overflow-hidden">
+        <button className="h-7 min-w-7 text-sm flex items-center justify-center hover:bg-neutral-300/80 rounded-sm px-2 overflow-hidden">
           <span className="truncate" >
             {getCurrentHeading()}
           </span>
