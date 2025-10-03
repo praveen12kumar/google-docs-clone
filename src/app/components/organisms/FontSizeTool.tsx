@@ -71,7 +71,7 @@ const FontSizeTool = () =>{
                 />
                 :
                 (
-                <button className="h-7 w-10 text-sm bordeer border-neutral-400 text-center rounded-sm bg-transparent cursor-text"
+                <button className="h-7 w-10 text-sm border border-neutral-400 text-center rounded-sm bg-transparent cursor-text"
                     onClick={()=>{
                         setIsEditing(true);
                         setInputValue(currentFontSize);

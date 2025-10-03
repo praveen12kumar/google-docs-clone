@@ -10,7 +10,7 @@ import { TextStyle, Color, FontFamily, FontSize } from '@tiptap/extension-text-s
 import { ResizableImage } from 'tiptap-extension-resizable-image';
 import Link from '@tiptap/extension-link';
 import TextAlign from '@tiptap/extension-text-align';
-
+import {LineHeight} from '@tiptap/extension-text-style';
 
 import 'tiptap-extension-resizable-image/styles.css';
 
@@ -30,6 +30,7 @@ const Editor = () => {
         enableClickSelection: true,
       }),
       TextStyle,
+      LineHeight,
       Color,                // or Color.configure({ types: ['textStyle'] })
       FontFamily,
       FontSize,

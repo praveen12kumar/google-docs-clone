@@ -26,7 +26,7 @@ import ImageTool from "@/app/components/organisms/ImageTool";
 import AlignTool from "@/app/components/organisms/AlignTool";
 import ListTool from "@/app/components/organisms/ListTool";
 import FontSizeTool from "@/app/components/organisms/FontSizeTool";
-
+import LineHeight from "@/app/components/organisms/LineHeightTool";
 
 
 const Toolbar = () => {
@@ -137,7 +137,7 @@ const Toolbar = () => {
          {/* Todo: font size */}
 
          <FontSizeTool/>
-         
+
           <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
           {/* font color, Highlight */}
           <ColorTool/>
@@ -148,6 +148,7 @@ const Toolbar = () => {
         <LinkTool/>
         <ImageTool/>
         <AlignTool/>
+        <LineHeight/>
         <ListTool/>
 
         <Separator orientation="vertical" className="mx-1 h-6 w-px bg-neutral-700"/>
