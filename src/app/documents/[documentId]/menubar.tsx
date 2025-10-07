@@ -35,13 +35,39 @@ import {
   RemoveFormattingIcon, // if this icon doesn't exist in your lucide version, swap to Code2 or FileTextIcon
 } from 'lucide-react';
 import { BsFilePdf } from 'react-icons/bs';
+import { blob } from 'stream/consumers';
 
 const MenuBar = () => {
 
   const {editor} = useEditorStore();
+  
+  const onDownload = (blob: Blob, fileName: string)=>{
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.click();
+  }
 
-  const insertTable = ({rows, cols}: {rows: number, cols: number})=>{
-    editor?.chain().insertTable({rows, cols}).run();
+  const onSaveJSON = ()=>{
+    if(!editor) return;
+    const json = editor.getJSON();
+    const blob = new Blob([JSON.stringify(json)], {type: 'application/json'});
+    onDownload(blob, 'document.json');  //Todo: use document name
+  }
+
+   const onSaveHTML = ()=>{
+    if(!editor) return;
+    const content = editor.getHTML();
+    const blob = new Blob([content], {type: 'text/html'});
+    onDownload(blob, 'document.html');  //Todo: use document name
+  }
+
+  const onSaveText = ()=>{
+    if(!editor) return;
+    const content = editor.getText();
+    const blob = new Blob([content], {type: 'text/plain'});
+    onDownload(blob, 'document.txt');  //Todo: use document name
   }
 
   return (
@@ -56,30 +82,38 @@ const MenuBar = () => {
           {/* Save submenu */}
           <MenubarSub>
             <MenubarSubTrigger className="w-32 outline-none rounded-sm hover:bg-neutral-200/80">
-              <div className="flex items-center p-1">
-                <FileIcon className="size-4 mr-2" />
+              <div className="flex ">
+                <FileIcon className="size-4 mr-2 -ml-1" />
                 <span>Save</span>
               </div>
             </MenubarSubTrigger>
 
             <MenubarSubContent className="min-w-12 flex flex-col gap-y-1 bg-white shadow-md rounded-sm p-3 print:hidden">
-              <MenubarItem className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
+              <MenubarItem 
+                  onClick={onSaveJSON}
+                className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
                 {/* If FileJsonIcon doesn't exist in your lucide build, replace with FileTextIcon */}
                 <FileJsonIcon className="size-4 mr-2" />
                 JSON
               </MenubarItem>
 
-              <MenubarItem className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
+              <MenubarItem
+                onClick={onSaveHTML}
+                className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
                 <GlobeIcon className="size-4 mr-2" />
                 HTML
               </MenubarItem>
 
-              <MenubarItem className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
+              <MenubarItem 
+                onClick={()=> window.print()}
+                className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
                 <BsFilePdf className="size-4 mr-2" />
                 PDF
               </MenubarItem>
 
-              <MenubarItem className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
+              <MenubarItem 
+                onClick={onSaveText}
+                className="flex items-center p-1 outline-none rounded-sm hover:bg-neutral-300/80 cursor-pointer">
                 <FileTextIcon className="size-4 mr-2" />
                 Text
               </MenubarItem>
