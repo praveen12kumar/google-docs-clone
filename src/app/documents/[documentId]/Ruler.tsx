@@ -23,7 +23,7 @@ const Ruler = () => {
     }
 
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: React.MouseEvent) => {
         const PAGE_WIDTH = 816;
         const MINIMUM_SPACE = 100;
 
@@ -68,12 +68,12 @@ const Ruler = () => {
   return (
     <div  
         ref={rulerRef}
-        onMouseMove={(e)=>handleMouseMove}
+        onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
-        className='h-6 border-b border-gray-300 flex items-end relative select-none print:hidden'
+        className='h-6 w-[816px] mx-auto border-b border-gray-300 flex items-end relative select-none print:hidden'
     >
-        <div className="max-w-[816px] mx-auto w-full h-full relative" id='ruler-container'>
+        <div className="w-full h-full relative" id='ruler-container'>
             <Marker position={leftMargin} isLeft={true} isDragging={isDraggingLeft} onMouseDown={handleLeftMouseDown} onDoubleClick={handleLeftDoubleClick}/>
             <Marker position={rightMargin} isLeft={false} isDragging={isDraggingRight} onMouseDown={handleRightMouseDown} onDoubleClick={handleRightDoubleClick}/>
             <div className="absolute inset-x-0 bottom-0 h-full">

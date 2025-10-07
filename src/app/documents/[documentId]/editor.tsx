@@ -38,7 +38,7 @@ const Editor = () => {
       FontSize,
       TaskList,
       TaskItem.configure({ nested: true }),
-      TableKit,
+      TableKit.configure({table:{resizable:true}}),
       ResizableImage.configure({
         defaultWidth: 200,
         defaultHeight: 200,
