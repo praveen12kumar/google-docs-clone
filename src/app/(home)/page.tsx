@@ -1,9 +1,18 @@
-import Link from "next/link";
+'use client';
+
+import {useQuery} from 'convex/react';
+
 import Navbar from "./navbar";
 import TemplatesGallery from "./template-gallery";
-
+import {api} from '../../../convex/_generated/api';
 
 export default function Home() {
+  const documents = useQuery(api.documents.get);
+
+  if(documents === undefined){
+    return;
+  }
+
   return (
     <>
     <div className="min-h-screen flex flex-col">
@@ -12,6 +21,11 @@ export default function Home() {
       </div>
       <div className="mt-16">
         <TemplatesGallery/>
+        {
+          documents?.map((document)=>(
+            <div key={document._id}>{document.title}</div>
+          ))
+        }
       </div>
     </div>
     </>

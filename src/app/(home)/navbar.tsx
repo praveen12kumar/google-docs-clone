@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SearchInput from "./search-input";
+import {UserButton} from '@clerk/clerk-react';
 const Navbar = ()=>{
 
 return(
@@ -12,7 +13,7 @@ return(
             <h3 className="text-xl ml-1">Docs</h3>
         </div>
         <SearchInput/>
-        <div/>
+        <UserButton/>
     </nav>
 )
 
