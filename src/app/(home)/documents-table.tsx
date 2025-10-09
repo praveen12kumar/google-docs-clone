@@ -9,7 +9,7 @@ import {
   TableBody,
   TableHead,
 } from "@/components/ui/table";
-import { FullscreenLoader } from "../components/molecules/fullscreen-loader";
+import { FullscreenLoader } from "../../components/molecules/fullscreen-loader";
 import DocumentRow from "./document-row";
 
 

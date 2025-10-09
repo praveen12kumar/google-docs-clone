@@ -14,19 +14,19 @@ import { BoldIcon,
         Undo2Icon, 
     
     } from "lucide-react";
-import ToolbarButton from "@/app/components/ToolbarButton";
+import ToolbarButton from "@/components/molecules/ToolbarButton";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
-import FontFamilyTool from "@/app/components/organisms/FontFamilyTool";
-import HeadingTool from "@/app/components/organisms/HeadingTool";
-import ColorTool from "@/app/components/organisms/ColorTool";
-import HighlightTool from "@/app/components/organisms/HighlightTool";
-import LinkTool from "@/app/components/organisms/LinkTool";
-import ImageTool from "@/app/components/organisms/ImageTool";
-import AlignTool from "@/app/components/organisms/AlignTool";
-import ListTool from "@/app/components/organisms/ListTool";
-import FontSizeTool from "@/app/components/organisms/FontSizeTool";
-import LineHeight from "@/app/components/organisms/LineHeightTool";
+import FontFamilyTool from "@/components/organisms/FontFamilyTool";
+import HeadingTool from "@/components/organisms/HeadingTool";
+import ColorTool from "@/components/organisms/ColorTool";
+import HighlightTool from "@/components/organisms/HighlightTool";
+import LinkTool from "@/components/organisms/LinkTool";
+import ImageTool from "@/components/organisms/ImageTool";
+import AlignTool from "@/components/organisms/AlignTool";
+import ListTool from "@/components/organisms/ListTool";
+import FontSizeTool from "@/components/organisms/FontSizeTool";
+import LineHeight from "@/components/organisms/LineHeightTool";
 
 
 const Toolbar = () => {

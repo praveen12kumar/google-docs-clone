@@ -1,6 +1,6 @@
 'use client';
 
-import TableTool from '@/app/components/organisms/TableTool';
+import TableTool from '@/components/organisms/TableTool';
 import {
   Menubar,
   MenubarMenu,

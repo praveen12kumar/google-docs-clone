@@ -2,8 +2,9 @@ import { TableCell, TableRow } from "@/components/ui/table";
 import { SiGoogledocs } from "react-icons/si";
 import { format } from "date-fns";
 import { Doc } from "../../../convex/_generated/dataModel";
-import { Building2Icon, CircleUser, MoreVertical } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Building2Icon, CircleUser} from "lucide-react";
+import DocumentMenu from "./document-menu";
+
 
 interface DocumentRowProps {
   document: Doc<"documents">;
@@ -11,6 +12,11 @@ interface DocumentRowProps {
 
 const DocumentRow = ({ document }: DocumentRowProps) => {
   const isOrg = Boolean(document.organizationId);
+
+
+  const onNewTabClick = ()=>{
+    window.open(`/documents/${document._id}`, "_blank");
+  }
 
   return (
     <TableRow className="cursor-pointer">
@@ -43,9 +49,11 @@ const DocumentRow = ({ document }: DocumentRowProps) => {
 
       {/* Actions (right-aligned) */}
       <TableCell className="hidden md:table-cell text-right align-middle">
-        <Button className="rounded-full" variant="ghost" size="icon">
-          <MoreVertical />
-        </Button>
+        <DocumentMenu
+            documentId={document._id} 
+            title={document.title}
+            onNewTab={onNewTabClick}
+            />
       </TableCell>
     </TableRow>
   );
