@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useMutation } from "convex/react";
-
+import { toast } from "sonner";
 import {
     Dialog,
     DialogContent,
@@ -37,6 +37,8 @@ const RenameDialog = ({documentId, initialTitle, children}: RenameDialogProps)=>
         e.preventDefault();
         setIsIsUpdating(true);
         update({id: documentId, title:title.trim() || "Untitled"})
+        .catch(()=> toast.error('Unauthorized to rename document'))
+        .then(()=> toast.success('Document renamed'))
         .finally(()=>{
             setIsIsUpdating(false);
             setOpen(false);

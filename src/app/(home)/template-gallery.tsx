@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { useState } from "react";
-
+import {toast} from "sonner";
 
 
 const TemplatesGallery = () => {
@@ -17,7 +17,9 @@ const TemplatesGallery = () => {
     const onTemplateClick = async (title: string, initialContent: string) => {
         setIsCreating(true);
         create({title, initialContent})
+        .catch(()=> toast.error('Unauthorized to create document'))
         .then((documentId)=>{
+            toast.success('Document created');
             router.push(`/documents/${documentId}`);
         }).finally(()=>{
             setIsCreating(false);

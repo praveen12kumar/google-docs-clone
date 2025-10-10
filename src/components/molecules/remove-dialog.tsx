@@ -1,6 +1,8 @@
 'use client';
 
 import { useMutation } from "convex/react";
+import { toast } from "sonner"
+
 
 import {
     AlertDialog,
@@ -46,14 +48,16 @@ const RemoveDialog = ({documentId, children}: RemoveDialogProps)=>{
                         Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction 
+                        disabled={iseRemoving}
                         onClick={(e)=>{
                             e.stopPropagation();
                             setIsRemoving(true);
                             remove({id: documentId})
+                            .catch(()=> toast.error('Unauthorized to delete document'))
+                            .then(()=> toast.success('Document deleted'))
                             .finally(()=>{setIsRemoving(false)})
                         }}
                         >
-                        
                         Delete
                     </AlertDialogAction>
                 </AlertDialogFooter>

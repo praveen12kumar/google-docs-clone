@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import DocumentInput from './document-input';
 import MenuBar from  './menubar';
+import {OrganizationSwitcher, UserButton} from '@clerk/nextjs';
 
 const Navbar = () => {
   return (
@@ -17,8 +18,17 @@ const Navbar = () => {
                 <MenuBar/>
             </div>
         </div>
-        
        </div>
+       <div className="flex gap-3 items-end pl-6">
+            <OrganizationSwitcher
+            afterLeaveOrganizationUrl="/"
+            afterCreateOrganizationUrl="/"
+            afterSelectOrganizationUrl="/"
+            afterSelectPersonalUrl="/"
+            />
+            <UserButton/>
+        </div>
+        
     </nav>
   )
 }
