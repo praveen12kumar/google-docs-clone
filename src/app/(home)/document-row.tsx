@@ -34,7 +34,7 @@ const DocumentRow = ({ document }: DocumentRowProps) => {
       </TableCell>
 
       {/* Name */}
-      <TableCell className="font-medium md:w-[45%] align-middle">
+      <TableCell className="font-medium md:w-[40%] align-middle">
         {document.title}
       </TableCell>
 
