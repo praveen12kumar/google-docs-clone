@@ -6,8 +6,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Id } from "../../../convex/_generated/dataModel";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, MoreVertical, TrashIcon } from "lucide-react";
+import { EditIcon, ExternalLink, MoreVertical, TrashIcon } from "lucide-react";
 import RemoveDialog from "@/components/molecules/remove-dialog";
+import RenameDialog from "@/components/molecules/rename-dialog";
 
 interface DocumentMenuProps {
   documentId: Id<"documents">;
@@ -24,6 +25,9 @@ const DocumentMenu = ({ documentId, title, onNewTab }: DocumentMenuProps) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
+        <DropdownMenuItem onClick={() => onNewTab(documentId)}>
+          <ExternalLink className="mr-2 size-4" /> Open in new tab
+        </DropdownMenuItem>
         <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
           <RemoveDialog documentId={documentId}>
             <span className="flex items-center gap-2">
@@ -32,8 +36,14 @@ const DocumentMenu = ({ documentId, title, onNewTab }: DocumentMenuProps) => {
             </span>
           </RemoveDialog>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => onNewTab(documentId)}>
-          <ExternalLink className="mr-2 size-4" /> Open in new tab
+
+        <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+          <RenameDialog documentId={documentId} initialTitle={title}>
+            <span className="flex items-center gap-2">
+              <EditIcon className="size-4" />
+              <span>Rename</span>
+            </span>
+          </RenameDialog>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

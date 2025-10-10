@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { FullscreenLoader } from "../../components/molecules/fullscreen-loader";
 import DocumentRow from "./document-row";
+import { Button } from "@/components/ui/button";
 
 
 interface DocumentsTableProps {
@@ -57,6 +58,14 @@ const DocumentsTable = ({
           }
         </Table>
       )}
+      <div className="flex justify-center items-center">
+        <Button variant="outline" size="sm"
+        onClick={()=> loadMore(5)}
+        disabled={status !== "CanLoadMore"}
+        >
+          {status === "CanLoadMore" ? "Load More" : "No More Documents"}
+        </Button>
+      </div>
     </div>
   );
 };
